@@ -112,6 +112,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <BiSearch className="text-black size={20}" />
           </button>
         </div>
+        <div className="flex justify-between items-center gap-x-4">
+          <>
+          
+          </>
+        </div>
       </div>
     </div>
   ) 
