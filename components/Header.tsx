@@ -1,11 +1,14 @@
 'use client'
 
-import { useRouter } from "next/navigation"
-import { twMerge } from "tailwind-merge"
+import { useRouter } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 import { RxCaretLeft, RxCaretRight } from 'react-icons/rx'
-import { HiHome } from "react-icons/hi"
-import { BiSearch } from "react-icons/bi"
-import Button from "./Button"
+import { HiHome } from 'react-icons/hi'
+import { BiSearch } from 'react-icons/bi'
+
+import useAuthModal from '@/hooks/useAuthModal'
+
+import Button from './Button'
 
 interface HeaderProps {
   children: React.ReactNode
@@ -13,10 +16,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
+  const authModal = useAuthModal()
   const router = useRouter()
 
   const handleLogout = () => {
-  // Handle logout in the future
+    // Handle logout in the future
   }
 
   return (
@@ -117,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           <>
             <div>
               <Button
-                onClick={() => {}}
+                onClick={authModal.onOpen}
                 className="
                   bg-transparent
                   text-neutral-300
@@ -129,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             </div>
             <div>
               <Button
-                onClick={() => {}}
+                onClick={authModal.onOpen}
                 className="
                   bg-white
                   px-6
@@ -144,6 +148,6 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
       </div>
       {children}
     </div>
-  ) 
+  )
 }
 export default Header
